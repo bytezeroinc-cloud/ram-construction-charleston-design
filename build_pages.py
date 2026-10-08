@@ -186,7 +186,7 @@ TOWNS = {
    places_lede='From the Old Village to the neighbourhoods off Highway 17 and 41, each with its own architectural review or none at all. Tell us the street and we will tell you the rules.',
    ram=[('i', 'The canopy on the plan', 'Every protected tree on the survey before the first sketch, and a house shaped around the ones worth keeping.'),
         ('ii', 'The commission\'s set', 'Drawings, elevations and 3D views prepared for the Old Village review, presented by us.'),
-        ('iii', 'One fixed bid', 'Priced by the team that drew it, with allowances listed line by line.')],
+        ('iii', 'One fixed bid', 'Priced by the team that will build it, with allowances listed line by line.')],
    qs=[('Can you save the oaks on my lot?', 'Usually the question is which ones. We survey every protected tree, tell you which are historic, and draw the house around the ones worth keeping. Where a removal is unavoidable we handle the town\'s permit and mitigation.'),
        ('Do you handle the Old Village review?', 'Yes. We meet town staff first, prepare the drawings, elevations and views the Historic District Preservation Commission asks for, and present them.'),
        ('Is my lot in a flood zone?', 'We check it against the current flood maps during lot evaluation and explain what the zone means for the finished floor and the foundation before you commit to a plan.')],
@@ -238,7 +238,7 @@ TOWNS = {
    places_lede='Addresses run by station number along one long island. The ocean side, the back beach and the harbour end each carry their own lines and views.',
    ram=[('i', 'Drawn to the cap', 'Footprint and square footage worked out against the lot before the plan, so nothing is designed twice.'),
         ('ii', 'The board\'s set', 'Elevations, foundation height and views prepared for the Design Review Board and presented by us.'),
-        ('iii', 'One fixed bid', 'Priced by the team that drew it, allowances listed line by line.')],
+        ('iii', 'One fixed bid', 'Priced by the team that will build it, allowances listed line by line.')],
    qs=[('How big a house can I build?', 'It depends on the lot area. We work the footprint and square footage caps for your lot during evaluation and design to them from the start, so the board sees a house that already fits.'),
        ('Do you present to the Design Review Board?', 'Yes. We prepare the drawings, elevations and 3D views the board asks for and present the design at its monthly meeting.'),
        ('Can you renovate a historic cottage?', 'Yes. We assess what the house is, what the review allows and what the flood elevation asks, and give you an honest answer on renovating or rebuilding.')],
@@ -257,16 +257,16 @@ TOWNS = {
    rows=[
      ('01', 'The Architectural Review Board', 'The Daniel Island Architectural Review Board reviews every new home and every exterior change before the City of Charleston issues a permit. Each association has its own guidelines: the Community Association, Daniel Island Park, the Town Center, Captain\'s Island and the Retreat.', 'Daniel Island Property Owners\' Association, ARB and design guidelines'),
      ('02', 'The rules of the house', 'Pitched roofs between 8:12 and 12:12, foundation walls that enclose a crawl space rather than a slab at grade, minimum and maximum home sizes, and a build-to line that most of the front of the house must meet. We draw to them from the first sketch.', 'Daniel Island Community Association design guidelines'),
-     ('03', 'Daniel Island Park', 'In the Park the home must be designed by a registered architect and the landscape by a landscape architect registered in South Carolina; garages step back or turn to the side, and a house that overpowers its setting is not approved. RAM\'s in-house architects and design team carry both.', 'Daniel Island Park residential planning guide'),
+     ('03', 'Daniel Island Park', 'In the Park the home must be designed by a registered architect and the landscape by a landscape architect registered in South Carolina; garages step back or turn to the side, and a house that overpowers its setting is not approved. Our in-house design team works with local registered architects and landscape architects to carry both.', 'Daniel Island Park residential planning guide'),
      ('04', 'The water\'s edge', 'Marsh-front lots on the Wando and along Ralston and Beresford creeks carry a visual buffer of planting at the water and a flood elevation from the county maps. The dock, the buffer and the finished floor are drawn with the house.', 'Daniel Island Park planning guide; FEMA flood maps for Berkeley County'),
    ],
    places=['Daniel Island Park', 'Smythe Park', 'Center Park', "Codner's Ferry Park", 'Etiwan Park', 'Barfield Park', 'Ralston Creek', 'Beresford Creek', "Captain's Island"],
    places_lede='Park by park the guidelines shift a little: lot widths, build-to lines, the size of the house the street expects. We keep the current set for each one.',
-   ram=[('i', 'Architect and builder, one team', 'The registered architect the Park requires and the builder who prices the drawing sit at the same table.'),
+   ram=[('i', 'Architect and builder, one table', 'The local registered architect the Park requires works with our design team, at the same table as the builder who prices the drawing.'),
         ('ii', 'The board\'s set', 'Conceptual and final submittals, landscape plan included, prepared and presented by us.'),
         ('iii', 'Walk it before we build', 'An immersive 3D tour of every room and finish before the first inspection.')],
    qs=[('Do you take the design through the ARB?', 'Yes. We prepare the conceptual and final submittals for the Daniel Island Architectural Review Board, including the landscape plan where the guidelines require one, and present them.'),
-       ('Can you design for Daniel Island Park?', 'Yes. RAM\'s in-house team includes the registered architect the Park requires, and we work with a South Carolina-registered landscape architect on the site plan.'),
+       ('Can you design for Daniel Island Park?', 'Yes. Our in-house design is drawn with local registered architects, as the Park requires, and we work with a South Carolina-registered landscape architect on the site plan.'),
        ('What about a dock on the Wando?', 'Docks are reviewed by the board and permitted by the state. We design the dock, the water\'s-edge buffer and the house together so nothing is left to the end.')],
    desc='Custom home builder on Daniel Island, SC. RAM Construction Charleston designs to the Daniel Island Architectural Review Board and each park\'s guidelines, with a fixed bid and a 3D walk-through before construction.',
  ),
@@ -319,7 +319,7 @@ def town_page(slug):
 '''
     ld = jsonld({"@context": "https://schema.org", "@type": "WebPage", "name": f'Custom Homes in {t["name"]}, SC',
                  "description": t['desc'], "url": url(t["file"]),
-                 "about": {"@type": "Service", "serviceType": "Custom home design-build", "provider": {"@type": "GeneralContractor", "name": BRAND},
+                 "about": {"@type": "Service", "serviceType": "Custom home building", "provider": {"@type": "GeneralContractor", "name": BRAND},
                            "areaServed": {"@type": "Place", "name": f'{t["name"]}, SC'}},
                  "breadcrumb": {"@type": "BreadcrumbList", "itemListElement": [
                      {"@type": "ListItem", "position": 1, "name": "Home", "item": f'{SITE}/'},
@@ -333,14 +333,14 @@ def town_page(slug):
 def about_page():
     hero = arch_img('porch-portrait-woman-golden-hour', 1600, 900, 'A woman on a Lowcountry piazza at golden hour, looking out over the marsh', ratio='3/3.6', eager=True)
     d = door('IV', 'Begin a home', 'Tell us about <em>the lot.</em>', LEDE_DOOR,
-      qs=[('How is RAM Charleston related to RAM in Charlotte?', 'RAM Construction Charleston is a division of RAM Construction, the Charlotte design-build firm founded in 2004, with its own South Carolina license. Same team approach, same standards.'),
+      qs=[('How is RAM Charleston related to RAM in Charlotte?', 'We are partners, not one company. RAM Construction Charleston holds its own South Carolina license and builds with its own Lowcountry team. RAM Construction in Charlotte, building there since 2004, shares the approach: a fixed bid and a 3D walk-through before construction.'),
           ('Who will I deal with?', 'One project manager from first sketch to final walk-through, with a site meeting every week and a written recap after each one.'),
-          ('Is there a warranty?', "In Charlotte, RAM's building contract carries a 10-year Quality Builders Warranty backed by Liberty Mutual. Warranty terms for the Charleston division are confirmed in your contract.")])
-    body = f'''{phero('About RAM', 'Twenty years in Charlotte. <em>A new chapter on the coast.</em>',
-                 'RAM Construction began in Charlotte in 2004 as one firm: architects, building specialists and designers under one roof and one contract. RAM Construction Charleston brings that practice to the Lowcountry, with its own South Carolina license and the same people behind the drawings.',
-                 hero, meta=['Design-build since 2004', 'In-house architects and designers', 'Quality Builders Warranty in Charlotte'])}
+          ('Is there a warranty?', 'Warranty terms are written into your RAM Construction Charleston contract and confirmed before you sign.')])
+    body = f'''{phero('About RAM Charleston', 'Designed in the Lowcountry. <em>Built on the coast.</em>',
+                 'RAM Construction Charleston is a South Carolina-licensed custom home builder. Design is in-house: our team draws with local Lowcountry architects who know each town’s boards, and every home is priced as a fixed bid and toured in 3D before it is built. We work in partnership with RAM Construction of Charlotte.',
+                 hero, meta=['In-house design, local architects', 'SC-licensed residential builder', 'In partnership with RAM Charlotte'])}
 
-{ledger([('i', 'One firm, one drawing', 'Architects, designers and builders under one contract. The plan and the price come from the same table.'),
+{ledger([('i', 'Designed in-house', 'Our design team and local architects draw the plan; the price comes from the same table.'),
          ('ii', 'The budget comes early', 'Set before the plans are final, with the cost of every feature explained, so you decide what to keep with the number in front of you.'),
          ('iii', 'Walk it before we build', 'The lead designer builds the 3D model alongside the preliminary plans, checked by a structural engineer, so you tour the house months before construction.')])}
 
@@ -348,14 +348,14 @@ def about_page():
 <section class="story">
   <div class="wrap story-grid">
     <div class="story-art rv">
-      {arch_img('ram-two-storey-porches', 1600, 800, 'A RAM home in Charlotte with two storeys of deep porches', ratio='3/3.4')}
-      <p class="cap">RAM home · Charlotte</p>
+      {arch_img('ram-two-storey-porches', 1600, 800, 'A home by RAM Construction of Charlotte with two storeys of deep porches', ratio='3/3.4')}
+      <p class="cap">Partner home · RAM Construction, Charlotte</p>
     </div>
     <div class="story-copy">
       <span class="eyebrow rv"><i>I</i> The RAM way</span>
       <h2 class="h2 rv d1">We build your home <em>with you.</em></h2>
-      <p class="rv d1">Most builders hand the drawing to someone else to price, and hand the price to someone else to build. RAM does not. The same team listens to what matters to you, walks the lot to learn its layout and restrictions, draws the plan, prices it and builds it, so nothing is lost between the sketch and the site.</p>
-      <p class="rv d2">Every plan is original and drawn in-house. The budget is established early, before the plans are finalised, with an up-front account of what each feature adds, so change orders are the exception rather than the business model. The drawings that go to the county are the drawings that get built.</p>
+      <p class="rv d1">Most builders hand the drawing to someone else to price, and hand the price to someone else to build. We keep design in the house. Our design team listens to what matters to you and walks the lot to learn its layout and restrictions, local Lowcountry architects draw the plan with us, and the team that will build it prices it, so nothing is lost between the sketch and the site.</p>
+      <p class="rv d2">Every plan is original, drawn for your lot by architects who work on this coast. The budget is established early, before the plans are finalised, with an up-front account of what each feature adds, so change orders are the exception rather than the business model. The drawings that go to the county are the drawings that get built.</p>
       <p class="rv d2">Because a house is hard to see on paper, the lead designer builds an immersive 3D model at the same time as the preliminary plans. You tour every room, fixture and finish before construction begins, and the model is approved by a structural engineer so the changes you make in it can be trusted.</p>
       <ul class="chips rv d3">
         <li>One project manager, first sketch to keys</li>
@@ -366,28 +366,28 @@ def about_page():
   </div>
 </section>
 
-<!-- ═════ the Charlotte range ═════ -->
+<!-- ═════ the partner in Charlotte ═════ -->
 <section class="range on-dark">
   <div class="wrap">
-{sec_head('II', 'Twenty years of work', 'From SouthPark <em>to Dilworth.</em>', 'Since 2004 RAM has drawn and built houses of nearly every style and size in Charlotte: 6,000-square-foot modern homes in SouthPark, early-century Craftsman bungalows in Dilworth, and the renovations that keep an old street whole. Every photograph here is a finished RAM home.')}
+{sec_head('II', 'Our partner in Charlotte', 'From SouthPark <em>to Dilworth.</em>', 'We work in partnership with <a href="https://www.ramconstructioninc.com">RAM Construction</a>, which has built custom homes in Charlotte since 2004: 6,000-square-foot modern homes in SouthPark, early-century Craftsman bungalows in Dilworth, and the renovations that keep an old street whole. Every photograph here is one of their finished homes.')}
     <div class="range-grid">
-      <figure class="rv">{arch_img('ram-modern-home-balconies', 1600, 800, 'A modern RAM home with stacked balconies and a landscaped front', ratio='4/5')}<figcaption>Modern home · Charlotte</figcaption></figure>
-      <figure class="rv d1">{arch_img('ram-range-brass-kitchen', 1600, 800, 'Black and brass range beneath a white tile wall in a RAM kitchen', ratio='4/5')}<figcaption>Kitchen · Charlotte</figcaption></figure>
-      <figure class="rv d2">{arch_img('ram-screened-porch-wood-ceiling', 1600, 800, 'Screened porch with a vaulted wood ceiling and seating', ratio='4/5')}<figcaption>Screened porch · Charlotte</figcaption></figure>
+      <figure class="rv">{arch_img('ram-modern-home-balconies', 1600, 800, 'A modern RAM home with stacked balconies and a landscaped front', ratio='4/5')}<figcaption>Modern home · RAM Charlotte</figcaption></figure>
+      <figure class="rv d1">{arch_img('ram-range-brass-kitchen', 1600, 800, 'Black and brass range beneath a white tile wall in a RAM kitchen', ratio='4/5')}<figcaption>Kitchen · RAM Charlotte</figcaption></figure>
+      <figure class="rv d2">{arch_img('ram-screened-porch-wood-ceiling', 1600, 800, 'Screened porch with a vaulted wood ceiling and seating', ratio='4/5')}<figcaption>Screened porch · RAM Charlotte</figcaption></figure>
     </div>
     <div class="range-foot rv">
-      <p>The full gallery is on the <a href="index.html#work">homepage</a>. Charleston's own homes will join it as each one is completed.</p>
+      <p>More of their work is in the <a href="index.html#work">homepage gallery</a>. Charleston's own homes will join it as each one is completed.</p>
     </div>
   </div>
 </section>
 
-<!-- ═════ the Charleston division ═════ -->
+<!-- ═════ the Charleston company ═════ -->
 <section class="division">
   <div class="wrap division-grid">
     <div class="division-copy">
-      <span class="eyebrow rv"><i>III</i> The Charleston division</span>
-      <h2 class="h2 rv d1">Same practice, <em>new ground.</em></h2>
-      <p class="rv d1">RAM Construction Charleston is a division of RAM Construction, licensed as a residential builder in South Carolina. The Lowcountry asks different questions of a house than Charlotte does: flood elevations, the state's beachfront lines, salt air, hurricane wind, and a review board in most towns. We answer them in the drawings, before the price is set.</p>
+      <span class="eyebrow rv"><i>III</i> RAM Construction Charleston</span>
+      <h2 class="h2 rv d1">Our own license, <em>our own ground.</em></h2>
+      <p class="rv d1">RAM Construction Charleston is licensed as a residential builder in South Carolina, with its own team in the Lowcountry. The Lowcountry asks different questions of a house than Charlotte does: flood elevations, the state's beachfront lines, salt air, hurricane wind, and a review board in most towns. We answer them in the drawings, before the price is set.</p>
       <p class="rv d2">We build in four towns to begin with: Mount Pleasant, Isle of Palms, Sullivan's Island and Daniel Island. Each has a page of its own with the rules we design to.</p>
       <ul class="division-towns rv d2">
         <li><a href="mount-pleasant.html">Mount Pleasant <span>&rarr;</span></a></li>
@@ -398,17 +398,16 @@ def about_page():
     </div>
     <div class="division-facts rv d1">
       <dl>
-        <div><dt>Founded</dt><dd>2004, Charlotte, North Carolina</dd></div>
-        <div><dt>Practice</dt><dd>In-house design-build: architects, building specialists, designers</dd></div>
-        <div><dt>Warranty</dt><dd>10-year Quality Builders Warranty on RAM's Charlotte contracts, backed by Liberty Mutual · Charleston terms confirmed in your contract</dd></div>
+                <div><dt>Practice</dt><dd>Custom home builder, with in-house design through local Lowcountry architects</dd></div>
+        <div><dt>Warranty</dt><dd>Terms written into your contract and confirmed before you sign</dd></div>
         <div><dt>South Carolina</dt><dd>Residential builder license · number listed at launch</dd></div>
         <div><dt>Charleston line</dt><dd><a href="tel:+18430000000">(843) 000-0000</a> · issued at launch</dd></div>
-        <div><dt>Parent</dt><dd><a href="https://www.ramconstructioninc.com">RAM Construction, Charlotte</a></dd></div>
+        <div><dt>Partner</dt><dd>RAM Construction, Charlotte, North Carolina</dd></div>
       </dl>
     </div>
   </div>
   <div class="wrap creds-row rv" aria-label="Credentials">
-    <p>Built to <em>RAM's standard,</em> backed by the same marks as Charlotte.</p>
+    <p>The marks our partner, <em>RAM Construction of Charlotte,</em> builds under.</p>
     <ul class="plates">
       <li><img src="img/cred/bbb.png" alt="BBB Accredited Business" loading="lazy" width="120" height="120"></li>
       <li><img src="img/cred/nahb.png" alt="Member, National Association of Home Builders" loading="lazy" width="120" height="120"></li>
@@ -421,11 +420,11 @@ def about_page():
 {d}
 </main>
 '''
-    desc = 'RAM Construction Charleston is the Lowcountry division of RAM Construction, the Charlotte design-build firm founded in 2004: architects, designers and builders under one contract, a fixed bid and a 3D walk-through before construction.'
+    desc = 'RAM Construction Charleston is a South Carolina-licensed custom home builder with in-house design through local Lowcountry architects, a fixed bid and a 3D walk-through before construction, in partnership with RAM Construction of Charlotte.'
     ld = jsonld({"@context": "https://schema.org", "@type": "AboutPage", "name": f'About {BRAND}', "description": desc, "url": url("about.html"),
-                 "mainEntity": {"@type": "GeneralContractor", "name": BRAND, "parentOrganization": {"@type": "Organization", "name": "RAM Construction", "url": "https://www.ramconstructioninc.com", "foundingDate": "2004"}}})
+                 "mainEntity": {"@type": "GeneralContractor", "name": BRAND}})
     pre = '<link rel="preload" as="image" href="img/w/porch-portrait-woman-golden-hour-1600.webp">\n'
-    return head(f'About RAM Construction Charleston | Design-Build Since 2004', desc, f'{SITE}/about.html', 'img/w/porch-portrait-woman-golden-hour-1600.webp', pre) + chrome('about.html') + body + tail('about.html', ld)
+    return head('About RAM Construction Charleston | Custom Home Builder, SC', desc, f'{SITE}/about.html', 'img/w/porch-portrait-woman-golden-hour-1600.webp', pre) + chrome('about.html') + body + tail('about.html', ld)
 
 # ── FAQ ──────────────────────────────────────────────────────────────────────
 GROUPS = [
@@ -437,24 +436,24 @@ GROUPS = [
  ]),
  ('price', 'ii', 'Design and price', [
    ('How is the price set?', 'After design, we issue a fixed bid with allowances listed line by line, so you know the number before you sign.'),
-   ('Do you design in-house?', 'Yes. RAM is an in-house design-build firm: architects, designers and builders under one contract. The plan and the price are made by the same team, and the drawings that go to the county are the drawings we build.'),
+   ('Do you design in-house?', 'Yes. Design is in-house: our team draws with local Lowcountry architects who know each town\'s review boards, and the drawing is priced by the team that will build it. The drawings that go to the county are the drawings we build.'),
    ('When do we talk about budget?', 'Early, before the plans are final. We explain what each feature adds to the total as we design, so you decide what to keep with the number in front of you rather than after a bid comes back.'),
    ('What is the 3D walk-through?', 'Our lead designer builds an immersive 3D model alongside the preliminary plans, so you tour every room, fixture and finish before construction. The model is approved by a structural engineer, so the changes you make in it can be trusted.'),
-   ('Can you build from my architect\'s plans?', 'Yes. We review third-party plans for constructability and coastal requirements before we bid. Most clients use our in-house designers because design and pricing stay in one team.'),
+   ('Can you build from my architect\'s plans?', 'Yes. We review third-party plans for constructability and coastal requirements before we bid. Most clients use our in-house design team and its local architects, because design and pricing stay together.'),
  ]),
  ('coast', 'iii', 'Building on the coast', [
    ('What does an elevated home involve?', 'The finished floor is set above the flood elevation from the maps and the town\'s rule; the foundation, venting or pilings are drawn for it; the ground level becomes parking and storage; and the porch goes where the breeze is. All of it is in the first sketch, not added at the end.'),
    ('Which towns have design review?', 'The Old Village of Mount Pleasant (Historic District Preservation Commission), Sullivan\'s Island (Design Review Board) and Daniel Island (Architectural Review Board) review new homes, and inside Wild Dunes on Isle of Palms the community\'s own board issues a permit. We prepare the drawings, elevations and 3D views each board asks to see, and present them.'),
    ('How do you build for hurricanes?', 'Impact-rated openings, a continuous load path and roof tie-downs are specified in the drawings for every coastal home, not added when the permit comes back.'),
-   ('What about salt air?', 'Stainless fasteners, marine-grade finishes and siding chosen to last on the coast, specified by the same team that will maintain the warranty.'),
+   ('What about salt air?', 'Stainless fasteners, marine-grade finishes and siding chosen to last on the coast, specified by the team that builds the home.'),
    ('What are the beachfront lines on the islands?', 'The state\'s Bureau of Coastal Management sets a baseline along the primary dune and a setback line behind it. What may be built seaward of those lines is limited and permitted by the state. We locate both on the survey before we draw.'),
  ]),
  ('ram', 'iv', 'Working with RAM', [
-   ('How is RAM Charleston related to RAM in Charlotte?', 'RAM Construction Charleston is a division of RAM Construction, the Charlotte design-build firm founded in 2004, with its own South Carolina license. Same team approach, same standards.'),
+   ('How is RAM Charleston related to RAM in Charlotte?', 'We are partners, not one company. RAM Construction Charleston holds its own South Carolina license and builds with its own Lowcountry team. RAM Construction in Charlotte, building there since 2004, shares the approach: a fixed bid and a 3D walk-through before construction.'),
    ('Who will I deal with?', 'One project manager from first sketch to final walk-through, with a site meeting every week and a written recap after each one.'),
-   ('Is there a warranty?', "In Charlotte, RAM's building contract carries a 10-year Quality Builders Warranty backed by Liberty Mutual. Warranty terms for the Charleston division are confirmed in your contract."),
+   ('Is there a warranty?', 'Warranty terms are written into your RAM Construction Charleston contract and confirmed before you sign.'),
    ('Renovate or rebuild?', 'It depends on the structure, the flood elevation and what you want the home to become. We assess the house and give you an honest answer on both paths.'),
-   ('Where can I see your work?', 'The homepage gallery shows finished RAM homes in Charlotte, photographed as built. Charleston\'s own homes will join it as each one is completed; the Lowcountry scenes on this site are illustrative renderings and are marked as such.'),
+   ('Where can I see your work?', 'The homepage gallery shows finished homes by our partner, RAM Construction of Charlotte, photographed as built. Charleston\'s own homes will join it as each one is completed; the Lowcountry scenes on this site are illustrative renderings and are marked as such.'),
  ]),
 ]
 
@@ -489,7 +488,7 @@ def faq_page():
 {d}
 </main>
 '''
-    desc = 'Questions people ask before building a custom home in Charleston: lots and flood zones, how the fixed bid is set, the 3D walk-through, coastal design review, hurricanes and salt air, and how RAM Charleston relates to RAM in Charlotte.'
+    desc = 'Questions people ask before building a custom home in Charleston: lots and flood zones, how the fixed bid is set, the 3D walk-through, coastal design review, hurricanes and salt air, and how RAM Charleston works with its partner in Charlotte.'
     ld = jsonld({"@context": "https://schema.org", "@type": "WebPage", "name": f'Questions | {BRAND}', "description": desc, "url": url("faq.html")})
     pre = '<link rel="preload" as="image" href="img/w/open-living-room-stair-marsh-light-1600.webp">\n'
     return head('Questions Before You Build | RAM Construction Charleston', desc, f'{SITE}/faq.html', 'img/w/open-living-room-stair-marsh-light-1600.webp', pre) + chrome('faq.html') + body + tail('faq.html', ld)
