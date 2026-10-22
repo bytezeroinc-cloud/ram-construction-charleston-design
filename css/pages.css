@@ -45,8 +45,23 @@
 .tother a{font:italic 500 22px/1 var(--serif);color:var(--alabaster)}
 .tother a span{color:var(--amber);margin-left:6px}
 
+/* ── service pages: the cross-links under the rail, on the light ground ── */
+.tother-lt{margin-top:64px;padding-top:28px;border-top:1px solid var(--rule)}
+.tother-lt .datum-lab{color:var(--muted)}
+.tother-lt a{color:var(--black)}
+.tother-lt a span{color:var(--red)}
+.stepfig{border-radius:0;background:#111}
+.stepc figure .stepfig img{aspect-ratio:auto}
+.inner .team{background:var(--alabaster)}
+.inner .team+.story-dk{margin-top:0}
+.story-p{font:300 17px/1.75 var(--sans);color:var(--text);max-width:58ch;margin-top:18px}
+
 /* ── about: the RAM way ── */
 .story{background:var(--alabaster);padding:110px 0}
+.story-dk{background:var(--black);color:var(--alabaster)}
+.story-dk .story-copy p{color:rgba(243,243,243,.82)}
+.story-dk .story-art .cap{color:rgba(243,243,243,.55)}
+.story-dk .story-copy .more{margin-top:8px}
 .story-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:96px;align-items:start}
 .story-art{position:sticky;top:110px}
 .story-art .cap{margin-top:12px;font:400 10.5px/1.5 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
@@ -141,6 +156,7 @@
   .places li{font-size:20px;padding:18px 16px;gap:12px}
   .tother{gap:18px 26px}
   .story,.division,.range,.qwrap,.ctowns{padding:70px 0}
+  .tother-lt{margin-top:44px}
   .story-grid,.division-grid,.qgrid{grid-template-columns:1fr;gap:40px}
   .story-art{position:static}
   .range-grid{grid-template-columns:1fr}

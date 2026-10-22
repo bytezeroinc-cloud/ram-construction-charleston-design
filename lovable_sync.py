@@ -28,6 +28,11 @@ PAGES = {  # static file -> route path
     'isle-of-palms.html': '/isle-of-palms',
     'sullivans-island.html': '/sullivans-island',
     'daniel-island.html': '/daniel-island',
+    'custom-homes.html': '/custom-homes',
+    'renovations-additions.html': '/renovations-additions',
+    'design-preconstruction.html': '/design-preconstruction',
+    'lowcountry.html': '/lowcountry',
+    'process.html': '/process',
 }
 LINKS = {f: (p if p != '/' else '/') for f, p in PAGES.items()}
 
