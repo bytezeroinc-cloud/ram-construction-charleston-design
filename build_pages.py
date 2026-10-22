@@ -709,7 +709,7 @@ def about_page():
       <dl>
         <div><dt>Practice</dt><dd>Custom homes, renovations and additions, design and preconstruction, with in-house design through local Lowcountry architects</dd></div>
         <div><dt>Warranty</dt><dd>Terms written into your contract and confirmed before you sign</dd></div>
-        <div><dt>South Carolina</dt><dd>Residential builder license · number listed at launch</dd></div>
+        <div><dt>South Carolina</dt><dd>Residential builder license RBB.23524.RBW</dd></div>
         <div><dt>Charleston line</dt><dd><a href="tel:+18430000000">(843) 000-0000</a> · issued at launch</dd></div>
         <div><dt>Partner</dt><dd>RAM Construction, Charlotte, North Carolina, building custom homes since 2004</dd></div>
       </dl>
